@@ -19,7 +19,7 @@ export const useTransactions = (accountId: string | undefined): UseTransactionsR
   const [transactions, setTransactions] = useState<Transaction[]>(() =>
     accountId ? transactionStore.getByAccount(accountId) : []
   );
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, ] = useState(false);
 
   useEffect(() => {
     if (!accountId) {
