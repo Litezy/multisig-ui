@@ -6,6 +6,7 @@ import { useModal } from '../hooks/useModal';
 import { Layout } from '../components/layout/Layout';
 import { TransactionCard } from '../components/cards/TransactionCard';
 import { type Transaction } from '../types/IMultisig';
+import { Link } from 'react-router-dom';
 
 // Format ISO createdAt into a readable date label for grouping
 // e.g. "2023-09-14T12:53:00Z" → "Sep 14, 2023"
@@ -67,13 +68,13 @@ export const Transactions: React.FC = () => {
       <div>
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-white text-3xl font-semibold">Transactions</h1>
-          <a
-            href="/new-transaction"
+          <Link
+            to="/new-transaction"
             className="bg-[#7FFFD4] text-black text-sm font-semibold px-4 py-2
                        rounded-lg hover:bg-[#5eefc4] transition-colors"
           >
             + New Transaction
-          </a>
+          </Link>
         </div>
 
         {/* Tabs */}
@@ -135,13 +136,13 @@ export const Transactions: React.FC = () => {
                   : 'Your transaction history will appear here'}
               </p>
               {activeTab === 'queue' && (
-                <a
-                  href="/new-transaction"
+                <Link
+                  to="/new-transaction"
                   className="inline-block bg-[#7FFFD4] text-black text-sm font-semibold
                              px-5 py-2.5 rounded-lg hover:bg-[#5eefc4] transition-colors"
                 >
                   Create Transaction
-                </a>
+                </Link>
               )}
             </div>
           ) : (

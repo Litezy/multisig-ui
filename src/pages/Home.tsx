@@ -6,6 +6,7 @@ import { useModal } from '../hooks/useModal';
 import { Layout } from '../components/layout/Layout';
 import { StatsCard } from '../components/cards/StatsCard';
 import { TransactionCard } from '../components/cards/TransactionCard';
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const { accounts, selectedAccount, selectAccountById } = useAccounts();
@@ -85,8 +86,8 @@ export const Home: React.FC = () => {
         <span className="text-[#7FFFD4] text-sm font-mono truncate flex-1">
           {selectedAccount.tokenAddress}
         </span>
-        <a
-          href={`https://sepolia.etherscan.io/address/${selectedAccount.tokenAddress}`}
+        <Link
+          to={`https://sepolia.etherscan.io/address/${selectedAccount.tokenAddress}`}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 text-gray-600 hover:text-gray-400 transition-colors"
@@ -95,7 +96,7 @@ export const Home: React.FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       {/* Transaction Queue — live, from store */}
@@ -111,30 +112,30 @@ export const Home: React.FC = () => {
               </span>
             )}
           </div>
-          <a
-            href="/new-transaction"
+          <Link
+            to="/new-transaction"
             className="text-[#7FFFD4] text-sm hover:underline transition-colors"
           >
             + New
-          </a>
+          </Link>
         </div>
 
         <div className="space-y-3">
           {queuedTransactions.length === 0 ? (
             <div className="text-center py-10">
               <svg className="w-12 h-12 text-gray-700 mx-auto mb-3" fill="none"
-                   stroke="currentColor" viewBox="0 0 24 24">
+                stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <p className="text-gray-500 text-sm">No pending transactions</p>
-              <a
-                href="/new-transaction"
+              <Link
+                to="/new-transaction"
                 className="mt-3 inline-block bg-[#7FFFD4] text-black text-sm font-semibold
-                           px-4 py-2 rounded-lg hover:bg-[#5eefc4] transition-colors"
+             px-4 py-2 rounded-lg hover:bg-[#5eefc4] transition-colors"
               >
                 Create Transaction
-              </a>
+              </Link>
             </div>
           ) : (
             <>
@@ -142,13 +143,13 @@ export const Home: React.FC = () => {
                 <TransactionCard key={tx.id} transaction={tx} />
               ))}
               {queuedTransactions.length > 3 && (
-                <a
-                  href="/transactions"
+                <Link
+                  to="/transactions"
                   className="block w-full text-center text-[#7FFFD4] hover:underline
                              text-sm py-2"
                 >
                   View all {queuedTransactions.length} pending transactions
-                </a>
+                </Link>
               )}
             </>
           )}
@@ -160,9 +161,10 @@ export const Home: React.FC = () => {
         <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white text-xl font-semibold">Recent History</h2>
-            <a href="/transactions" className="text-[#7FFFD4] text-sm hover:underline">
+            <Link 
+            to="/transactions" className="text-[#7FFFD4] text-sm hover:underline">
               View all
-            </a>
+            </Link>
           </div>
           <div className="space-y-3">
             {historyTransactions.slice(0, 3).map((tx) => (

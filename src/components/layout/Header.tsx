@@ -51,8 +51,8 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Desktop: contract address */}
-        <a
-          href={`https://sepolia.etherscan.io/address/${selectedAccount.address}`}
+        <Link
+          to={`https://sepolia.etherscan.io/address/${selectedAccount.address}`}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden lg:flex items-center gap-1.5 text-gray-400 hover:text-white
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
-        </a>
+        </Link>
 
         {/* Multisig account switcher */}
         <div className="relative">

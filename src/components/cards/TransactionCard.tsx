@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { type Transaction } from '../../types/IMultisig';
 import { truncateAddress, copyToClipboard } from '../../utils/mockData';
+import { Link } from 'react-router-dom';
 
 interface TransactionCardProps {
   transaction: Transaction;
@@ -192,8 +193,8 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
                     </svg>
                   )}
                 </button>
-                <a
-                  href={`https://sepolia.etherscan.io/address/${transaction.to}`}
+                <Link
+                  to={`https://sepolia.etherscan.io/address/${transaction.to}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
@@ -204,7 +205,7 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Key/value rows */}
@@ -284,8 +285,8 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
                           <p className="text-gray-500 text-sm">initiator</p>
                         )}
                       </div>
-                      <a
-                        href={`https://sepolia.etherscan.io/address/${conf.owner}`}
+                      <Link
+                        to={`https://sepolia.etherscan.io/address/${conf.owner}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
@@ -295,7 +296,7 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                             d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   ))
                 )}
